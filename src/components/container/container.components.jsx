@@ -14,8 +14,13 @@ class Container extends React.Component{
 
     render(){
         return(
-            <div>
-                <ContainerItem empregos={this.state.empregos}/>
+            <div className="display">
+                {
+                    this.state.empregos.map(({ id, ...outros}) => (
+                            <ContainerItem key={id} {...outros}/>
+                        )
+                    )
+                }
             </div>
         )
     }

@@ -1,9 +1,3 @@
-.display{
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
     .container{
         flex: 1 1 auto;
         margin: 10px;
@@ -13,7 +7,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        background-color: red;
         align-items: center;
         justify-content: center;
         overflow: hidden;
@@ -46,8 +39,7 @@
             }
 
             .caixa-interna{
-                background-color: rgba(255, 255, 255, 0.829);
+                background-color: rgba(255, 255, 255, 0.89);
             }
         }
     }
-}
