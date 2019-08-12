@@ -18,6 +18,15 @@ class SearchBar extends React.Component {
     handleSubmit = event => {
         //previne o browser de reload/refresh!!!
         event.preventDefault();
+        fetch('http://localhost:3000/', {
+            method: 'post',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                find: this.state.search
+            })
+        })
+            .then(res => res.json())
+            .then(value => console.log(value));
 
         this.setState({search: ''});
     }
