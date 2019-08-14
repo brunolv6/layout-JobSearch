@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import JobItem from '../job-item/job-item.component';
 
 import './search-bar.style.scss'
 
@@ -6,7 +8,8 @@ class SearchBar extends React.Component {
     constructor(){
         super();
         this.state = {
-            search: ''
+            search: '',
+            vagas: null
         }
     }
 
@@ -26,7 +29,9 @@ class SearchBar extends React.Component {
             })
         })
             .then(res => res.json())
-            .then(value => console.log(value));
+            .then(value => {
+                this.setState({vagas: value});
+            });
 
         this.setState({search: ''});
     }
@@ -39,10 +44,22 @@ class SearchBar extends React.Component {
                     <input className='search-input' type='search' name='search' value={this.state.search} onChange={this.handleChange}/>
                     <button className='search-button' name='q'>Search</button>
                 </form>
+                    {
+                        this.state.vagas?
+                        <div className='job-container'>
+                            {
+                                
+                                this.state.vagas.map((emp, idx) => (
+                                    <JobItem key={idx} vagas={emp}/>
+                                ))
+                            }
+                        </div>
+                        : null
+                    }
             </div>
         );
     }
 }
     
 
-export default SearchBar;
+export default withRouter(SearchBar);

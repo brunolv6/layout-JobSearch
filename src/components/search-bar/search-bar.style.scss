@@ -23,4 +23,11 @@
         border: 1px solid black;
         cursor: pointer;
     }
+
+    .job-container{
+        margin: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
