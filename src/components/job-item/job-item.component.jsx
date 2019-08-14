@@ -4,7 +4,7 @@ import './job-item.style.scss';
 
 const JobItem = ({ key, vagas }) => {
     return (
-            <div className='job-item' >
+            <div className={`job-item ${(key%2 === 0)? 'bg2': 'bg1'}`} >
                 <div className='title'>
                     {vagas}
                 </div>
