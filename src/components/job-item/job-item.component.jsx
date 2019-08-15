@@ -2,9 +2,9 @@ import React from 'react';
 
 import './job-item.style.scss';
 
-const JobItem = ({ id, vagas }) => {
+const JobItem = ({ id, vagas, url }) => {
     return (
-            <div className={`job-item ${(id%2 === 0)? 'bg1': 'bg2'}`} >
+            <a href={url} rel="noopener noreferrer" target="_blank" className={`job-item ${(id%2 === 0)? 'bg1': 'bg2'}`}>
                 <div className='title'>
                     {vagas}
                 </div>
@@ -16,7 +16,7 @@ const JobItem = ({ id, vagas }) => {
                     <div><strong>Nível:</strong> Júnior</div>
                     <div><strong>Salário:</strong> R$3200</div>
                 </div>
-            </div>
+            </a>
     );
 };
 

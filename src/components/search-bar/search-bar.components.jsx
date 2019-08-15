@@ -50,7 +50,7 @@ class SearchBar extends React.Component {
                             {
                                 
                                 this.state.vagas.map(emp => (
-                                    <JobItem key={emp.id} id={emp.id} vagas={emp.vaga}/>
+                                    <JobItem key={emp.id} id={emp.id} vagas={emp.vaga} url={emp.url}/>
                                 ))
                             }
                         </div>
