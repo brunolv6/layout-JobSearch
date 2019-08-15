@@ -2,9 +2,9 @@ import React from 'react';
 
 import './job-item.style.scss';
 
-const JobItem = ({ key, vagas }) => {
+const JobItem = ({ id, vagas }) => {
     return (
-            <div className={`job-item ${(key%2 === 0)? 'bg2': 'bg1'}`} >
+            <div className={`job-item ${(id%2 === 0)? 'bg1': 'bg2'}`} >
                 <div className='title'>
                     {vagas}
                 </div>
