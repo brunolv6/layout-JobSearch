@@ -4,6 +4,8 @@ import './job-item.style.scss';
 
 const JobItem = ({ id, vagas, url }) => {
     return (
+            //target abre em outra janela o link
+            //rel garante segurança para que não haja pishing attacks
             <a href={url} rel="noopener noreferrer" target="_blank" className={`job-item ${(id%2 === 0)? 'bg1': 'bg2'}`}>
                 <div className='title'>
                     {vagas}
