@@ -2,11 +2,24 @@ import React from 'react';
 
 import './job-item.style.scss';
 
-const JobItem = ({ id, vagas, url }) => {
-    return (
+class JobItem extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            opened: false
+        }
+    }
+
+    handleVisited = () => {
+        this.setState({opened: !this.state.opened});
+    }
+
+    render(){
+        const { id, vagas, url} = this.props;
+        return (
             //target abre em outra janela o link
             //rel garante segurança para que não haja pishing attacks
-            <a href={url} rel="noopener noreferrer" target="_blank" className={`job-item ${(id%2 === 0)? 'bg1': 'bg2'}`}>
+            <a href={url} rel="noopener noreferrer" target="_blank" className={`job-item ${(id%2 === 0)? 'bg1': 'bg2'}`} onClick={this.handleVisited}>
                 <div className='title'>
                     {vagas}
                 </div>
@@ -19,7 +32,8 @@ const JobItem = ({ id, vagas, url }) => {
                     <div><strong>Salário:</strong> R$3200</div>
                 </div>
             </a>
-    );
+        );
+    }
 };
 
 export default JobItem;
