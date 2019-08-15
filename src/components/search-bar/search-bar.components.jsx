@@ -47,6 +47,7 @@ class SearchBar extends React.Component {
                     {
                         this.state.vagas?
                         <div className='job-container'>
+                        <div className='visto'><div className='green-box'></div>Você já visitou!</div>
                             {
                                 
                                 this.state.vagas.map(emp => (
