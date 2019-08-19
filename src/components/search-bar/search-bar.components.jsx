@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+
 import JobItem from '../job-item/job-item.component';
 
 import './search-bar.style.scss'
@@ -62,5 +62,5 @@ class SearchBar extends React.Component {
     }
 }
     
-
-export default withRouter(SearchBar);
+    
+export default SearchBar;
