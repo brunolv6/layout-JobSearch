@@ -2,9 +2,6 @@ import React from 'react';
 
 import JobItem from '../job-item/job-item.component';
 
-import { connect } from 'react-redux';
-import { setVagas } from '../../redux/search/search.actions'
-
 import './search-bar.style.scss'
 
 class SearchBar extends React.Component {
@@ -35,9 +32,6 @@ class SearchBar extends React.Component {
             .then(res => res.json())
             .then(value => {
                 this.setState({vagas: value})
-                console.log(value);
-                setVagas(value);
-                console.log("Rato" + this.props.vagas);
             });
 
         this.setState({search: ''});
@@ -69,14 +63,4 @@ class SearchBar extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    /* currentSearch: state.search.currentSearch, */
-    vagas: state.search.vagas
-})
-
-const mapDispatchToProps = dispatch => ({
-    /* setCurrentSearch: currentSearch => dispatch(setCurrentSearch(currentSearch)), */
-    setVagas: vagas => dispatch(setVagas(vagas))
-})
-    
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default SearchBar;

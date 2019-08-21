@@ -1,23 +1,19 @@
+import { SearchActionTypes } from  './search.types';
+
 const INITIAL_STATE = {
-    currentSearch: '',
-    vagas: null
+    currentSearch: ''
 }
 
 export const searchReducer = (state = INITIAL_STATE, action) => {
     switch(action.type){
-        case 'SET_CURRENT_SEARCH':
+        case SearchActionTypes.SET_CURRENT_SEARCH:
             return{
                 ...state,
-                find: action.payload
+                currentSearch: action.payload
             }
-        case 'SET_VAGAS': {
-            console.log(action.payload);
+        default:
             return{
-                ...state,
-                vagas: action.payload
+                ...state
             }
-        }
-        default: 
-            return state;
     }
 }
