@@ -3,6 +3,8 @@ import React from 'react';
 import SearchBar from './components/search-bar/search-bar.components';
 import  Container from './components/container/container.components';
 
+import { connect } from 'react-redux';
+
 import './App.scss';
 
 class App extends React.Component {
@@ -10,10 +12,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <SearchBar/>
-        <Container/> 
+        {
+          this.props.vagas?
+            null
+            :<Container/> 
+        }
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  //não é um boa porque tem que esperar dar o fetch
+  vagas: state.search.vagas
+})
+
+export default connect(mapStateToProps)(App);

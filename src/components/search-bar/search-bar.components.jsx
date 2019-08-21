@@ -2,11 +2,14 @@ import React from 'react';
 
 import JobItem from '../job-item/job-item.component';
 
+import { connect } from 'react-redux';
+import { setVagas } from '../../redux/search/search.actions'
+
 import './search-bar.style.scss'
 
 class SearchBar extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             search: '',
             vagas: null
@@ -14,15 +17,16 @@ class SearchBar extends React.Component {
     }
 
     handleChange = event => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value});
+  /*       const { value } = event.target; */
+        this.setState({search: event.target.value});
+        console.log(event.target.value);
     }
 
     handleSubmit = event => {
         //previne o browser de reload/refresh!!!
         event.preventDefault();
         fetch('http://localhost:3000/', {
-            method: 'post',
+            method: 'post', 
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 find: this.state.search
@@ -30,7 +34,10 @@ class SearchBar extends React.Component {
         })
             .then(res => res.json())
             .then(value => {
-                this.setState({vagas: value});
+                this.setState({vagas: value})
+                console.log(value);
+                setVagas(value);
+                console.log("Rato" + this.props.vagas);
             });
 
         this.setState({search: ''});
@@ -61,6 +68,15 @@ class SearchBar extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    /* currentSearch: state.search.currentSearch, */
+    vagas: state.search.vagas
+})
+
+const mapDispatchToProps = dispatch => ({
+    /* setCurrentSearch: currentSearch => dispatch(setCurrentSearch(currentSearch)), */
+    setVagas: vagas => dispatch(setVagas(vagas))
+})
     
-    
-export default SearchBar;
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
