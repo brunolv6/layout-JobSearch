@@ -23,4 +23,14 @@
         border: 1px solid black;
         cursor: pointer;
     }
+
+    @media screen and (max-width: 500px) {
+        .search-input{
+            width: 200px;
+        }
+
+        .search-button{
+            width: 66px;
+        }
+    }
 }
