@@ -14,15 +14,13 @@ class SearchBar extends React.Component {
     }
 
     handleChange = event => {
-  /*       const { value } = event.target; */
         this.setState({search: event.target.value});
-        console.log(event.target.value);
     }
 
     handleSubmit = event => {
         //previne o browser de reload/refresh!!!
         event.preventDefault();
-        fetch('http://localhost:3000/', {
+        fetch('https://api-search-jobs.herokuapp.com/', {
             method: 'post', 
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({

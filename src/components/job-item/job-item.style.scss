@@ -54,3 +54,12 @@ a{
             font-size: small;
         }
 }
+
+@media (max-width:600px){
+    .job-item{
+        font-size: 12px;
+        .extras-container{
+            font-size: 8px;
+        }
+    }        
+}   
